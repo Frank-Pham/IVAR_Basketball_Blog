@@ -1,4 +1,4 @@
-baseURL = 'https://frank-pham.github.io/IVAR_Basketball'
+baseURL = 'https://frank-pham.github.io/IVAR_Basketball/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = 'PaperMod'
