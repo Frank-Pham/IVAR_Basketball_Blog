@@ -1,5 +1,5 @@
 baseURL = 'https://frank-pham.github.io/IVAR_Basketball/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Interaction in Virtual and Augmented Reality 2023/2024'
 theme = 'PaperMod'
 publishDir = "docs"
