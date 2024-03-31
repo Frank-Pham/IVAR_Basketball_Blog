@@ -215,7 +215,7 @@ Additionally everytime the player dribbles the basketball and it hits the ground
 
 I also added a trail renderer to the basketball GameObject to give the player a visual feedback in which direction the ball is heading. The thought process behind this is to help visualize the trajectory of the ball when a dunking motion is initiated.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f944c257-4a74-4c79-9445-fe73faa4771d/0a78e7bf-4225-4f99-9979-17583a0a9f1a/Untitled.png)
+![trailRenderer](https://github.com/Frank-Pham/IVAR_Basketball_Blog/assets/58122562/bfdb2f5c-ae6a-4f05-8514-dba6203a6683)
 
 ## Challenges
 
