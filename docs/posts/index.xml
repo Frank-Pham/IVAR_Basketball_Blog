@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on My New Hugo Site</title>
+    <title>Posts on Interaction in Virtual and Augmented Reality 2023/2024</title>
     <link>https://frank-pham.github.io/IVAR_Basketball/posts/</link>
-    <description>Recent content in Posts on My New Hugo Site</description>
+    <description>Recent content in Posts on Interaction in Virtual and Augmented Reality 2023/2024</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 23 Oct 2023 23:52:42 +0200</lastBuildDate><atom:link href="https://frank-pham.github.io/IVAR_Basketball/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>My First Post</title>
+      <title>The Idea</title>
       <link>https://frank-pham.github.io/IVAR_Basketball/posts/my-first-post/</link>
       <pubDate>Mon, 23 Oct 2023 23:52:42 +0200</pubDate>
       
       <guid>https://frank-pham.github.io/IVAR_Basketball/posts/my-first-post/</guid>
-      <description></description>
+      <description>Introduction This blog documents the semester-long project for the course “Interaction in Virtual Reality and Augmented Reality” at TU Darmstadt. The task for the course was to dive into VR-Development with Unity and create a locomotion technique and an object interaction technique, which will be used to move through a VR-Parkour that was developed by one of the lecturers. We were also given Meta Quest 2 headsets, where we could develop and test our applications on.</description>
+    </item>
+    
+    <item>
+      <title>Development Phase</title>
+      <link>https://frank-pham.github.io/IVAR_Basketball/posts/development/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://frank-pham.github.io/IVAR_Basketball/posts/development/</guid>
+      <description>Implementation: Locomotion Initial Prototype One of the main restrictions during the development of the initial prototype for the locomotion technique was how the players movement is restricted due to the confined space, in which the player is situated in contrarily to the open court in basketball. Thus running up and down your room wasn’t an feasible option, so the first step is to keep the locomotion mechanics simple &amp;amp; straightforward: the way and the direction you dribble the ball dictates the players movement within the virtual space.</description>
     </item>
     
   </channel>
