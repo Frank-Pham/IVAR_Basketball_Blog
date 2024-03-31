@@ -1,4 +1,4 @@
-baseURL = 'https://frank-pham.github.io/IVAR_Basketball/'
+baseURL = 'https://frank-pham.github.io/IVAR_Basketball_Blog/'
 languageCode = 'en-us'
 title = 'Interaction in Virtual and Augmented Reality 2023/2024'
 theme = 'PaperMod'

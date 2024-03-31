@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Development Phase | Interaction in Virtual and Augmented Reality 2023/2024</title>
+<meta name="keywords" content="">
+<meta name="description" content="Implementation: Locomotion Initial Prototype One of the main restrictions during the development of the initial prototype for the locomotion technique was how the players movement is restricted due to the confined space, in which the player is situated in contrarily to the open court in basketball. Thus running up and down your room wasn’t an feasible option, so the first step is to keep the locomotion mechanics simple &amp; straightforward: the way and the direction you dribble the ball dictates the players movement within the virtual space.">
+<meta name="author" content="">
+<link rel="canonical" href="https://frank-pham.github.io/IVAR_Basketball_Blog/posts/development/">
+<link crossorigin="anonymous" href="/IVAR_Basketball_Blog/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/IVAR_Basketball_Blog/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://frank-pham.github.io/IVAR_Basketball_Blog/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://frank-pham.github.io/IVAR_Basketball_Blog/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://frank-pham.github.io/IVAR_Basketball_Blog/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://frank-pham.github.io/IVAR_Basketball_Blog/apple-touch-icon.png">
+<link rel="mask-icon" href="https://frank-pham.github.io/IVAR_Basketball_Blog/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Development Phase" />
+<meta property="og:description" content="Implementation: Locomotion Initial Prototype One of the main restrictions during the development of the initial prototype for the locomotion technique was how the players movement is restricted due to the confined space, in which the player is situated in contrarily to the open court in basketball. Thus running up and down your room wasn’t an feasible option, so the first step is to keep the locomotion mechanics simple &amp; straightforward: the way and the direction you dribble the ball dictates the players movement within the virtual space." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://frank-pham.github.io/IVAR_Basketball_Blog/posts/development/" /><meta property="article:section" content="posts" />
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Development Phase"/>
+<meta name="twitter:description" content="Implementation: Locomotion Initial Prototype One of the main restrictions during the development of the initial prototype for the locomotion technique was how the players movement is restricted due to the confined space, in which the player is situated in contrarily to the open court in basketball. Thus running up and down your room wasn’t an feasible option, so the first step is to keep the locomotion mechanics simple &amp; straightforward: the way and the direction you dribble the ball dictates the players movement within the virtual space."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://frank-pham.github.io/IVAR_Basketball_Blog/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Development Phase",
+      "item": "https://frank-pham.github.io/IVAR_Basketball_Blog/posts/development/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Development Phase",
+  "name": "Development Phase",
+  "description": "Implementation: Locomotion Initial Prototype One of the main restrictions during the development of the initial prototype for the locomotion technique was how the players movement is restricted due to the confined space, in which the player is situated in contrarily to the open court in basketball. Thus running up and down your room wasn’t an feasible option, so the first step is to keep the locomotion mechanics simple \u0026amp; straightforward: the way and the direction you dribble the ball dictates the players movement within the virtual space.",
+  "keywords": [
+    
+  ],
+  "articleBody": "Implementation: Locomotion Initial Prototype One of the main restrictions during the development of the initial prototype for the locomotion technique was how the players movement is restricted due to the confined space, in which the player is situated in contrarily to the open court in basketball. Thus running up and down your room wasn’t an feasible option, so the first step is to keep the locomotion mechanics simple \u0026 straightforward: the way and the direction you dribble the ball dictates the players movement within the virtual space. Hence a forward dribble propels the player forward. In the initial prototype a downward motion (y-Axis) translates to a instant movement/teleportation:\nprivate void MovePlayer() { Vector3 rightControllerPos = OVRInput.GetLocalControllerPosition(rightController); float dribbleSpeed = (rightControllerPos - lastPosition).magnitude / Time.deltaTime; if (dribbleSpeed \u003e= 1.0) { if (OVRInput.GetLocalControllerAcceleration(rightController).y \u003e= 2.0) { isDribbling = true; Debug.Log(\"Dribbling:\" + isDribbling); this.transform.position += new Vector3(dribbleSpeed, 0.0f, 0.0f); Vector3 forwardDirection = Camera.main.transform.forward *2; forwardDirection.y = 0.0f; forwardDirection.Normalize(); this.transform.Translate(forwardDirection * speed * Time.deltaTime); } } lastPosition = rightControllerPos; } The MovePlayer function basically checks if the velocity of the OVRController exceeds a certain threshold so it can move the player forward. My intention behind this code was to mimick a dribble motion by checking only the acceleration in the y-Axis. While it was effective to move around like this at first glance by spamming the dribble motion, it didn’t had the sense of intuitiveness and smoothness I was looking for. Additionally there were major flaws like setting forwardDirection.y = 0.0f that came to haunt me later on at the part of the parkour where the slope begins (more on this later on in Bugs). Another flaw with this Code is that you can’t control the dribble of the ball and you would lose control over the ball 9 out of 10 times. In addition to that, the instant translation of the forward movement made matters worse because you couldn’t orient yourself quick enough to locate and react to the movement of the basketball.\nSo I had to came up with a better solution and refractor the code to fit\nFinal implementation \u0026 adjustments In the new Dribble.cs Script, which is attached to Basketball GameObject , all the dribbling related logic is defined. There are few tweaks so the handling of the ball feels more intuitive instead of relying on the in-game physics and the reaction time of the player like beforehand:\nvoid Update() { if (ballInHand) { hitGround = false; CrossOver(parentHand.transform.position); Vector3 controllerVelocity = OVRInput.GetLocalControllerVelocity(currentController); Quaternion controllerRotation = OVRInput.GetLocalControllerRotation(currentController); float speed = controllerVelocity.magnitude; bool isDribbling = Vector3.Dot(controllerVelocity.normalized, controllerRotation * Vector3.down) \u003e 0; Debug.Log(\"Speed\" + speed); if (speed \u003e dribbleThreshold \u0026\u0026 isDribbling) { .... Vector3 forwardDirection = controllerRotation * Vector3.forward; ballInHand = false; this.isDribbling = true; rb.AddForce(forwardDirection * 3 - Vector3.down , ForceMode.VelocityChange); rb.useGravity = true; rb.isKinematic = false; .... magneticForce = 0f; lastControllerPos = currentControllerPos; StartCoroutine(TriggerHapticFeedback(currentController)); } } } Similar to the initial prototype, the script checks the velocity of the controller to initiate the dribble. Additionally to that there are two key additions, which are on the one hand OnTriggerEvent to keep track in which hand the ball is located and on the other the magnetic property of the ball.\nif (other.gameObject.tag == \"hand\") { magneticForce = 10f; Debug.Log(\"In collider hand\"); this.isDribbling = false; parentHand = other.gameObject; currentController = rightController; Vector3 rightControllerPos = OVRInput.GetLocalControllerPosition(rightController); ballInHand = true; } The magnetic property of the ball, which kind of behaves like a Jo-Jo, ensures that the ball always returns to the controller which initiated the dribble motion (aka. the parentHand). Simply by subtracting the position of the controller and the position where the basketball hit the ground gets you the direction where the ball should return to. The last step is to add a force to the rigidbody of the ball and a magneticForce which defines how strong the magnetic force should be.\nSo what is the thought process to have a magnetic force? It is highly unrealistic to have something like this in basketball one might think right? The reasoning behind this is two-fold :\nPlayer can control the basketball better\nMakes dynamically switch hands easier (f.e. to mimick a crossover move)\n// Dribble.cs: CrossOver() if (hitGround \u0026\u0026 isDribbling) { Vector3 directionToHand = parentHand.transform.position - transform.position; rb.AddForce(directionToHand.normalized * magneticForce); rb.velocity *= dampingFactor; } This eradicates one of the annoying flaws that was described beforehand and offers the player a new layer of flexibility when handling the ball. I added a damping factor to the velocity of the ball because the magnetic force on the basketball was too powerful sometimes.\nAlso the interaction between the LocomotionTechnique.cs and Dribble.cs Scripts was the key to make the locomotion technique more intuitive and smooth. One of the solutions, that ChatGPT gave me, is to use linear interpolation Lerp(), which is already provided by Unity’s vast variety of built-in functions. I ended up moving over \u0026 adjusting the locomotion mechanics in the LocomotionTechnique.cs in LateUpdate() . The method initially checks if a target position exists for the player to move towards. This desired target is dynamically set based on game events, such as the location where a basketball has landed/collided like the floor and is getting tracked by the dribbleManager aka.Dribble.cs.\n// LocomotionTechnique.cs: LateUpdate() if(dribbleManager.hitGround \u0026\u0026 !throwableManager.isPassing) { Vector3 desiredPosition = target.position; desiredPosition.y = dribbleManager.groundY; transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime); } A high-level description of how the scripts interact with each other: Player pickups the ball (OnTriggerEnter) → ballInHand = true Magnetic force is turned on → ball moves to the parent hand In Dribble.cs : Player initiates dribble → Set ballInHand = false \u0026 isDribbling = true Magnetic force is turned off → ball moves toward the ground In LocomotionTechnique.cs : Check constantly if(hitGround == true) If true → Player moves to the position where the ball hit the ground Magnetic force is turned on → ball moves to the parent hand Repeat Second Locomotion Technique: Dunking I thought it would be pretty sweet to be able to dunk the basketball because IRL one might be limited through their physical capabilities. So how does this work? It is basically like an alley-oop that you throw to yourself and the player is able to initiate a short dunking teleportation to the throwing direction of the ball. Here is a quick instruction on how the dunking locomotion technique works:\nHold/Grab the ball with the right index trigger Push forward like a pass while holding the right index trigger Ball is in the air While ball is in the air, quickly push controller upwards Slam dunk The dunking implementation consists of two phases and builds on top of the logic moving towards a desired position that we already seen in LocomotionTechnique.cs .\nPhase 1: Throwing the Alley-Oop For the throwing/passing mechanic I followed two tutorials from Black Whale Studio and Lights\u0026Clockwork. I ended up using mainly the throwing logic from the first tutorial because the latter one didn’t took into account the velocity of the controller, which resulted in a powerful throw even though the throwing motion was slight.\n// Throwable.cs: Update() if (speed \u003e passThreshold \u0026\u0026 isPassingForward) { isPassing = true; Vector3 controllerPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch); PassBasketball(controllerPosition, controllerRotation, controllerVelocity); lastPassTime = Time.time; isPicked = false; } Similar to the dribbling logic, where I checked if the player surpasses a certain threshhold in the downwards direction, the passing logic behaves the same but in the forward direction. If it is the case then PassBasketball() is called, which adds a force to the rigidbody of the basketball . Also set isPassing = true enables the second phase to dunk towards the ball.\nPhase 2: Dunk towards the ball if(isPassing == true) { Vector3 localVelocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch); float upwardsVelocity = localVelocity.y; if(upwardsVelocity \u003e dunkThreshold \u0026\u0026 Time.time \u003e lastPassTime + cooldown) isDunking = true; } } After that I check if the ball is in the air (isPassing == true) and enable the dunk if the player moved the controller quick enough in the upwards direction. Additionally a cooldown is added to ensure that the player can’t spam the dunking motion.\nIn LocomotionTechnique.cs it check constantly if a dunking motion is initiated (isDunking = true) similar to dribbling.\n// LocomotionTechnique.cs: LateUpdate() else if(throwableManager.isDunking) { Vector3 desiredPosition = target.position; desiredPosition.y = target.position.y; transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime); } Haptic \u0026 auditive feedback To improve presence I added haptics and soundeffects. Every time the player initiates a dribble haptic feedback in form of controller vibration is activated.\n// Dribble.cs StartCoroutine(TriggerHapticFeedback(currentController)); private IEnumerator TriggerHapticFeedback(OVRInput.Controller controller) { OVRInput.SetControllerVibration(1, 1, controller); yield return new WaitForSeconds(hapticDuration); OVRInput.SetControllerVibration(0,0, controller); } For this I followed this tutorial about Metas Haptics SDK and created a simple coroutine to enable \u0026 disable the haptic feedback.\nAdditionally everytime the player dribbles the basketball and it hits the ground a “bouncing” sound effect is played.\nTrail renderer I also added a trail renderer to the basketball GameObject to give the player a visual feedback in which direction the ball is heading. The thought process behind this is to help visualize the trajectory of the ball when a dunking motion is initiated.\nChallenges Description: When the player reaches the slope part of the parkour. He/she is unable to move the slope upwards and moves into the slope instead. The problem lies in forwardDirection.y = 0.0f Solution: private void OnCollisionEnter(Collision collision) { if (collision.gameObject.CompareTag(\"ground\")) { hitGround = true; magneticForce = 10f; ContactPoint contact = collision.contacts[0]; groundY = contact.point.y; this.GetComponent().Play(); Debug.Log(\"Ground Y: \" + groundY); } } After a lot of debugging and testing out new solutions, the solution to this problem was rather trivial. The ContactPoint class stores information about the contact point where a collision occurs. First I tagged all the streets on the parkour \u0026 the slope with a “ground” tag. Then when everytime the basketball hits the ground, I extract the y-position from the first contact point of the collision and set it to the new y-position of the player, which gets updated in LocomotionTechnique.cs.\n",
+  "wordCount" : "1654",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://frank-pham.github.io/IVAR_Basketball_Blog/posts/development/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Interaction in Virtual and Augmented Reality 2023/2024",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://frank-pham.github.io/IVAR_Basketball_Blog/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://frank-pham.github.io/IVAR_Basketball_Blog/" accesskey="h" title="Interaction in Virtual and Augmented Reality 2023/2024 (Alt + H)">Interaction in Virtual and Augmented Reality 2023/2024</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Development Phase
+    </h1>
+    <div class="post-meta">
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="implementation-locomotion">Implementation: Locomotion<a hidden class="anchor" aria-hidden="true" href="#implementation-locomotion">#</a></h2>
+<h3 id="initial-prototype">Initial Prototype<a hidden class="anchor" aria-hidden="true" href="#initial-prototype">#</a></h3>
+<p>One of the main restrictions during the development of the initial prototype for the locomotion technique was how the players movement is restricted due to the confined space, in which the player is situated in contrarily to the open court in basketball. Thus running up and down your room wasn’t an feasible option, so the first step is to keep the locomotion mechanics simple &amp; straightforward: the way and the direction you dribble the ball dictates the players movement within the virtual space. Hence a forward dribble propels the player forward. In the initial prototype a downward motion (y-Axis) translates to a instant movement/teleportation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> MovePlayer()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        Vector3 rightControllerPos = OVRInput.GetLocalControllerPosition(rightController);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">float</span> dribbleSpeed = (rightControllerPos - lastPosition).magnitude / Time.deltaTime;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (dribbleSpeed &gt;= <span style="color:#ae81ff">1.0</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (OVRInput.GetLocalControllerAcceleration(rightController).y &gt;= <span style="color:#ae81ff">2.0</span>)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                isDribbling = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>                Debug.Log(<span style="color:#e6db74">&#34;Dribbling:&#34;</span> + isDribbling);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">this</span>.transform.position += <span style="color:#66d9ef">new</span> Vector3(dribbleSpeed, <span style="color:#ae81ff">0.0f</span>, <span style="color:#ae81ff">0.0f</span>);
+</span></span><span style="display:flex;"><span>                Vector3 forwardDirection = Camera.main.transform.forward *<span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>                forwardDirection.y = <span style="color:#ae81ff">0.0f</span>;
+</span></span><span style="display:flex;"><span>                forwardDirection.Normalize();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">this</span>.transform.Translate(forwardDirection * speed * Time.deltaTime);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        lastPosition = rightControllerPos;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>The <code>MovePlayer</code> function basically checks if the velocity of the <code>OVRController</code> exceeds a certain threshold so it can move the player forward. My intention behind this code was to mimick a dribble motion by checking only the acceleration in the y-Axis. While it was effective to move around like this at first glance by spamming the dribble motion, it didn’t had the sense of intuitiveness and smoothness I was looking for. Additionally there were major flaws like setting <code>forwardDirection.y = 0.0f</code> that came to haunt me later on at the part of the parkour where the slope begins (more on this later on in Bugs). Another flaw with this Code is that you can’t control the dribble of the ball and you would lose control over the ball 9 out of 10 times. In addition to that, the instant translation of the forward movement made matters worse because you couldn’t orient yourself quick enough to locate and react to the movement of the basketball.</p>
+<p>So I had to came up with a better solution and refractor the code to fit</p>
+<h3 id="final-implementation--adjustments">Final implementation &amp; adjustments<a hidden class="anchor" aria-hidden="true" href="#final-implementation--adjustments">#</a></h3>
+<p>In the new <code>Dribble.cs</code>  Script, which is attached to Basketball <code>GameObject</code> , all the dribbling related logic is defined. There are few tweaks so the handling of the ball feels more intuitive instead of relying on the in-game physics and the reaction time of the player like beforehand:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> Update()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (ballInHand)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            hitGround = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>            CrossOver(parentHand.transform.position);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            Vector3 controllerVelocity = OVRInput.GetLocalControllerVelocity(currentController);
+</span></span><span style="display:flex;"><span>            Quaternion controllerRotation = OVRInput.GetLocalControllerRotation(currentController);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">float</span> speed = controllerVelocity.magnitude;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">bool</span> isDribbling = Vector3.Dot(controllerVelocity.normalized, controllerRotation * Vector3.down) &gt; <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>            Debug.Log(<span style="color:#e6db74">&#34;Speed&#34;</span> + speed);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (speed &gt; dribbleThreshold &amp;&amp; isDribbling)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>               ....
+</span></span><span style="display:flex;"><span>                Vector3 forwardDirection = controllerRotation * Vector3.forward;
+</span></span><span style="display:flex;"><span>                ballInHand = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">this</span>.isDribbling = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>                rb.AddForce(forwardDirection * <span style="color:#ae81ff">3</span> - Vector3.down , ForceMode.VelocityChange);
+</span></span><span style="display:flex;"><span>                rb.useGravity = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>                rb.isKinematic = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>                  ....
+</span></span><span style="display:flex;"><span>                magneticForce = <span style="color:#ae81ff">0f</span>;
+</span></span><span style="display:flex;"><span>                lastControllerPos = currentControllerPos;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                StartCoroutine(TriggerHapticFeedback(currentController));
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>Similar to the initial prototype, the script checks the velocity of the controller to initiate the dribble. Additionally to that there are two key additions, which are on the one hand <code>OnTriggerEvent</code> to keep track in which hand the ball is located and on the other the magnetic property of the ball.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (other.gameObject.tag == <span style="color:#e6db74">&#34;hand&#34;</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            magneticForce = <span style="color:#ae81ff">10f</span>;
+</span></span><span style="display:flex;"><span>            Debug.Log(<span style="color:#e6db74">&#34;In collider hand&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.isDribbling = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>            parentHand = other.gameObject;
+</span></span><span style="display:flex;"><span>            currentController = rightController;
+</span></span><span style="display:flex;"><span>            Vector3 rightControllerPos = OVRInput.GetLocalControllerPosition(rightController);
+</span></span><span style="display:flex;"><span>            ballInHand = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span></code></pre></div><p>The magnetic property of the ball, which kind of behaves like a Jo-Jo, ensures that the ball always returns to the controller which initiated the dribble motion (aka. the <code>parentHand</code>). Simply by subtracting the position of the controller and the position where the basketball hit the ground gets you the direction where the ball should return to. The last step is to add a force to the rigidbody of the ball and a <code>magneticForce</code> which defines how strong the magnetic force should be.</p>
+<p>So what is the thought process to have a magnetic force? It is highly unrealistic to have something like this in basketball one might think right? The reasoning behind this is two-fold :</p>
+<ul>
+<li>
+<p>Player can control the basketball better</p>
+</li>
+<li>
+<p>Makes dynamically switch hands easier (f.e. to mimick a crossover move)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span> <span style="color:#75715e">// Dribble.cs: CrossOver()</span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">if</span> (hitGround &amp;&amp; isDribbling) {
+</span></span><span style="display:flex;"><span>        Vector3 directionToHand = parentHand.transform.position - transform.position;
+</span></span><span style="display:flex;"><span>        rb.AddForce(directionToHand.normalized * magneticForce);
+</span></span><span style="display:flex;"><span>        rb.velocity *= dampingFactor;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div></li>
+</ul>
+<p>This eradicates one of the annoying flaws that was described beforehand and offers the player a new layer of flexibility when handling the ball. I added a damping factor to the velocity of the ball because the magnetic force on the basketball was too powerful sometimes.</p>
+<p>Also the interaction between the <code>LocomotionTechnique.cs</code> and <code>Dribble.cs</code>  Scripts was the key to make the locomotion technique more intuitive and smooth. One of the solutions, that ChatGPT gave me, is to use linear interpolation <code>Lerp()</code>, which is already provided by Unity’s vast variety of built-in functions. I ended up moving over &amp; adjusting the locomotion mechanics in the <code>LocomotionTechnique.cs</code> in <code>LateUpdate()</code> . The method initially checks if a target position exists for the player to move towards. This desired target is dynamically set based on game events, such as the location where a basketball has landed/collided like the floor and is getting tracked by the <code>dribbleManager</code> aka.<code>Dribble.cs</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// LocomotionTechnique.cs: LateUpdate()</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span>(dribbleManager.hitGround &amp;&amp; !throwableManager.isPassing) {
+</span></span><span style="display:flex;"><span>  Vector3 desiredPosition = target.position;
+</span></span><span style="display:flex;"><span>  desiredPosition.y = dribbleManager.groundY; 
+</span></span><span style="display:flex;"><span>  transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="a-high-level-description-of-how-the-scripts-interact-with-each-other">A high-level description of how the scripts interact with each other:<a hidden class="anchor" aria-hidden="true" href="#a-high-level-description-of-how-the-scripts-interact-with-each-other">#</a></h3>
+<ol>
+<li>Player pickups the ball (<code>OnTriggerEnter</code>) → <code>ballInHand = true</code>
+<ul>
+<li>Magnetic force is turned on → ball moves to the parent hand</li>
+</ul>
+</li>
+<li>In <code>Dribble.cs</code> : Player initiates dribble → Set <code>ballInHand = false</code> &amp; <code>isDribbling = true</code>
+<ul>
+<li>Magnetic force is turned off → ball moves toward the ground</li>
+</ul>
+</li>
+<li>In <code>LocomotionTechnique.cs</code> : Check constantly <code>if(hitGround == true)</code></li>
+<li>If <code>true</code> → Player moves to the position where the ball hit the ground
+<ul>
+<li>Magnetic force is turned on → ball moves to the parent hand</li>
+</ul>
+</li>
+<li>Repeat</li>
+</ol>
+<h2 id="second-locomotion-technique-dunking">Second Locomotion Technique: Dunking<a hidden class="anchor" aria-hidden="true" href="#second-locomotion-technique-dunking">#</a></h2>
+<p>I thought it would be pretty sweet to be able to dunk the basketball because IRL one might be limited through their physical capabilities. So how does this work? It is basically like an alley-oop that you throw to yourself and the player is able to initiate a short dunking teleportation to the throwing direction of the ball. Here is a quick instruction on how the dunking locomotion technique works:</p>
+<ol>
+<li>Hold/Grab the ball with the right index trigger</li>
+<li>Push forward like a pass while holding the right index trigger</li>
+<li>Ball is in the air</li>
+<li>While ball is in the air, quickly push controller upwards</li>
+<li>Slam dunk</li>
+</ol>
+<p>The dunking implementation consists of two phases and builds on top of the logic moving towards a desired position that we already seen in <code>LocomotionTechnique.cs</code> .</p>
+<h3 id="phase-1-throwing-the-alley-oop">Phase 1: Throwing the Alley-Oop<a hidden class="anchor" aria-hidden="true" href="#phase-1-throwing-the-alley-oop">#</a></h3>
+<p>For the throwing/passing mechanic I followed two tutorials from <a href="https://www.youtube.com/watch?v=yDplNn9HlS4">Black Whale Studio</a> and <a href="https://www.youtube.com/watch?v=jVmqMy5vusU">Lights&amp;Clockwork</a>. I ended up using mainly the throwing logic from the first tutorial because the latter one didn’t took into account the velocity of the controller, which resulted in a  powerful throw even though the throwing motion was slight.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Throwable.cs: Update()</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (speed &gt; passThreshold &amp;&amp; isPassingForward) {
+</span></span><span style="display:flex;"><span>    isPassing = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>    Vector3 controllerPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch);
+</span></span><span style="display:flex;"><span>    PassBasketball(controllerPosition, controllerRotation, controllerVelocity);
+</span></span><span style="display:flex;"><span>    lastPassTime = Time.time;
+</span></span><span style="display:flex;"><span>    isPicked = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Similar to the dribbling logic, where I checked if the player surpasses a certain threshhold in the downwards direction, the passing logic behaves the same but in the forward direction. If it is the case then <code>PassBasketball()</code> is called, which adds a force to the rigidbody of the basketball . Also set <code>isPassing = true</code> enables the second phase to dunk towards the ball.</p>
+<h3 id="phase-2-dunk-towards-the-ball">Phase 2: Dunk towards the ball<a hidden class="anchor" aria-hidden="true" href="#phase-2-dunk-towards-the-ball">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">if</span>(isPassing == <span style="color:#66d9ef">true</span>) {
+</span></span><span style="display:flex;"><span>    Vector3 localVelocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span> upwardsVelocity = localVelocity.y;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(upwardsVelocity &gt; dunkThreshold &amp;&amp; Time.time &gt; lastPassTime + cooldown)
+</span></span><span style="display:flex;"><span>        isDunking = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>After that I check if the ball is in the air (<code>isPassing == true</code>) and enable the dunk if the player moved the controller quick enough in the upwards direction. Additionally a cooldown is added to ensure that the player can’t spam the dunking motion.</p>
+<p>In <code>LocomotionTechnique.cs</code>  it check constantly if a dunking motion is initiated (<code>isDunking = true</code>) similar to dribbling.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// LocomotionTechnique.cs: LateUpdate()</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(throwableManager.isDunking) {
+</span></span><span style="display:flex;"><span>  Vector3 desiredPosition = target.position;
+</span></span><span style="display:flex;"><span>  desiredPosition.y = target.position.y; 
+</span></span><span style="display:flex;"><span>  transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="haptic--auditive-feedback">Haptic &amp; auditive feedback<a hidden class="anchor" aria-hidden="true" href="#haptic--auditive-feedback">#</a></h2>
+<p>To improve presence I added haptics and soundeffects. Every time the player initiates a dribble haptic feedback in form of controller vibration is activated.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Dribble.cs </span>
+</span></span><span style="display:flex;"><span>StartCoroutine(TriggerHapticFeedback(currentController));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> IEnumerator TriggerHapticFeedback(OVRInput.Controller controller)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        OVRInput.SetControllerVibration(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, controller);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">yield</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> WaitForSeconds(hapticDuration);
+</span></span><span style="display:flex;"><span>        OVRInput.SetControllerVibration(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>, controller);
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>For this I followed <a href="https://www.youtube.com/watch?v=qr-k3swrLQE">this</a> tutorial about Metas Haptics SDK and created a simple coroutine to enable &amp; disable the haptic feedback.</p>
+<p>Additionally everytime the player dribbles the basketball and it hits the ground a “bouncing” sound effect is played.</p>
+<h3 id="trail-renderer">Trail renderer<a hidden class="anchor" aria-hidden="true" href="#trail-renderer">#</a></h3>
+<p>I also added a trail renderer to the basketball GameObject to give the player a visual feedback in which direction the ball is heading. The thought process behind this is to help visualize the trajectory of the ball when a dunking motion is initiated.</p>
+<p><img loading="lazy" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/f944c257-4a74-4c79-9445-fe73faa4771d/0a78e7bf-4225-4f99-9979-17583a0a9f1a/Untitled.png" alt="Untitled"  />
+</p>
+<h2 id="challenges">Challenges<a hidden class="anchor" aria-hidden="true" href="#challenges">#</a></h2>
+<ul>
+<li>Description: When the player reaches the slope part of the parkour. He/she is unable to move the slope upwards and moves into the slope instead. The problem lies in <code>forwardDirection.y = 0.0f</code></li>
+<li>Solution:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> OnCollisionEnter(Collision collision)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (collision.gameObject.CompareTag(<span style="color:#e6db74">&#34;ground&#34;</span>)) {
+</span></span><span style="display:flex;"><span>            hitGround = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>            magneticForce = <span style="color:#ae81ff">10f</span>;
+</span></span><span style="display:flex;"><span>            ContactPoint contact = collision.contacts[<span style="color:#ae81ff">0</span>];
+</span></span><span style="display:flex;"><span>            groundY = contact.point.y;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.GetComponent&lt;AudioSource&gt;().Play();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            Debug.Log(<span style="color:#e6db74">&#34;Ground Y: &#34;</span> + groundY);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>After a lot of debugging and testing out new solutions, the solution to this problem was rather trivial. The <code>ContactPoint</code> class stores information about the contact point where a collision occurs. First I tagged all the streets on the parkour &amp; the slope with a “ground” tag. Then when everytime the basketball hits the ground, I extract the y-position from the first contact point of the collision and set it to the new y-position of the player, which gets updated in <code>LocomotionTechnique.cs</code>.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://frank-pham.github.io/IVAR_Basketball_Blog/">Interaction in Virtual and Augmented Reality 2023/2024</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
