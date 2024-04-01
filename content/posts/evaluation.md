@@ -28,7 +28,7 @@ After testing the parkour, the participants were interviewed with the following 
 
 Here are the questionaire results:
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f944c257-4a74-4c79-9445-fe73faa4771d/cd66bdf0-dbc4-431a-a32b-5e6822828db5/Untitled.png)
+<img width="621" alt="questionaireIVAR" src="https://github.com/Frank-Pham/IVAR_Basketball_Blog/assets/58122562/ab7db312-2a02-46f8-a608-8dc0833101c3">
 
 ## Feedback
 
