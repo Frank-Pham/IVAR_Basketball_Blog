@@ -7,7 +7,7 @@ draft = false
 
 ### Initial Prototype
 
-One of the main restrictions during the development of the initial prototype for the locomotion technique was how the players movement is restricted due to the confined space, in which the player is situated in contrarily to the open court in basketball. Thus running up and down your room wasn’t an feasible option, so the first step is to keep the locomotion mechanics simple & straightforward: the way and the direction you dribble the ball dictates the players movement within the virtual space. Hence a forward dribble propels the player forward. In the initial prototype a downward motion (y-Axis) translates to a instant movement/teleportation: 
+One of the main restrictions during the development of the initial prototype for the locomotion technique was how the players movement is restricted due to the confined space, in which the player is situated in contrarily to the open court in basketball. Thus running up and down your room wasn’t an feasible option, so i kept the locomotion mechanics simple & straightforward: the way and the direction you dribble the ball dictates the players movement within the virtual space without the need to use your legs. Hence a forward dribble propels the player forward. In the initial prototype a downward motion (y-Axis) translates to a instant movement/teleportation: 
 
 ```csharp
   private void MovePlayer()
@@ -35,9 +35,7 @@ One of the main restrictions during the development of the initial prototype for
     }
 ```
 
-The `MovePlayer` function basically checks if the velocity of the `OVRController` exceeds a certain threshold so it can move the player forward. My intention behind this code was to mimick a dribble motion by checking only the acceleration in the y-Axis. While it was effective to move around like this at first glance by spamming the dribble motion, it didn’t had the sense of intuitiveness and smoothness I was looking for. Additionally there were major flaws like setting `forwardDirection.y = 0.0f` that came to haunt me later on at the part of the parkour where the slope begins (more on this later on in Bugs). Another flaw with this Code is that you can’t control the dribble of the ball and you would lose control over the ball 9 out of 10 times. In addition to that, the instant translation of the forward movement made matters worse because you couldn’t orient yourself quick enough to locate and react to the movement of the basketball.
-
-So I had to came up with a better solution and refractor the code to fit 
+The `MovePlayer` function basically checks if the velocity of the `OVRController` exceeds a certain threshold so it can move the player forward. My intention behind this code was to mimick a dribble motion by checking only the acceleration in the y-Axis. While it was effective to move around like this at first glance by spamming the dribble motion, it didn’t had the sense of intuitiveness and smoothness because the movement was decoupled from interacting with the basketball. Additionally there were major flaws like setting `forwardDirection.y = 0.0f` that came to haunt me later on at the part of the parkour where the slope begins (more on this later in Challenges). Another flaw with this Code is that you can’t control the dribble of the ball and you would lose control over the ball 9 out of 10 times. In addition to that, the instant translation of the forward movement made matters worse because you couldn’t orient yourself quick enough to locate and react to the movement of the basketball.
 
 ### Final implementation & adjustments
 
@@ -68,7 +66,7 @@ void Update()
                 rb.AddForce(forwardDirection * 3 - Vector3.down , ForceMode.VelocityChange);
                 rb.useGravity = true;
                 rb.isKinematic = false;
-                  ....
+	              ....
                 magneticForce = 0f;
                 lastControllerPos = currentControllerPos;
 
@@ -129,11 +127,13 @@ if(dribbleManager.hitGround && !throwableManager.isPassing) {
 1. Player pickups the ball (`OnTriggerEnter`) → `ballInHand = true`
     - Magnetic force is turned on → ball moves to the parent hand
 2. In `Dribble.cs` : Player initiates dribble → Set `ballInHand = false` & `isDribbling = true`
-    - Magnetic force is turned off → ball moves toward the ground
+    - Magnetic force is turned off → ball moves towards the ground
 3. In `LocomotionTechnique.cs` : Check constantly `if(hitGround == true)` 
-4. If `true` → Player moves to the position where the ball hit the ground
+4. If `true` → Player moves to the position (linearly interpolated) where the ball hit the ground
     - Magnetic force is turned on → ball moves to the parent hand
 5. Repeat 
+
+Gameplay of the dribbling implementation: [here](https://drive.google.com/file/d/13oyQo1um4KoxBUTqsR70QFchnmZqEq4L/view?usp=sharing)
 
 ## Second Locomotion Technique: Dunking
 
@@ -179,7 +179,7 @@ if(isPassing == true) {
 
 After that I check if the ball is in the air (`isPassing == true`) and enable the dunk if the player moved the controller quick enough in the upwards direction. Additionally a cooldown is added to ensure that the player can’t spam the dunking motion. 
 
- In `LocomotionTechnique.cs`  it check constantly if a dunking motion is initiated (`isDunking = true`) similar to dribbling.
+ In `LocomotionTechnique.cs`  it check constantly if a dunking motion is initiated (`isDunking = true`) similar to the dribbling implementation.
 
 ```csharp
 // LocomotionTechnique.cs: LateUpdate()
@@ -190,9 +190,11 @@ else if(throwableManager.isDunking) {
 }
 ```
 
+Gameplay of the dunking implementation: [here](https://drive.google.com/file/d/1JB8GBmEefcU_0TlB7CNYqMMyxxcVA191/view?usp=sharing)
+
 ## Haptic & auditive feedback
 
-To improve presence I added haptics and soundeffects. Every time the player initiates a dribble haptic feedback in form of controller vibration is activated.
+To improve presence for the players, I added haptics and soundeffects. Every time the player initiates a dribble haptic feedback in form of controller vibration is activated.
 
 ```csharp
 // Dribble.cs 
@@ -211,15 +213,15 @@ For this I followed [this](https://www.youtube.com/watch?v=qr-k3swrLQE) tutorial
 
 Additionally everytime the player dribbles the basketball and it hits the ground a “bouncing” sound effect is played.
 
-### Trail renderer
+### Visual feedback: Trail renderer
 
 I also added a trail renderer to the basketball GameObject to give the player a visual feedback in which direction the ball is heading. The thought process behind this is to help visualize the trajectory of the ball when a dunking motion is initiated.
 
-![trailRenderer](https://github.com/Frank-Pham/IVAR_Basketball_Blog/assets/58122562/bfdb2f5c-ae6a-4f05-8514-dba6203a6683)
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f944c257-4a74-4c79-9445-fe73faa4771d/0a78e7bf-4225-4f99-9979-17583a0a9f1a/Untitled.png)
 
 ## Challenges
 
-- Description: When the player reaches the slope part of the parkour. He/she is unable to move the slope upwards and moves into the slope instead. The problem lies in `forwardDirection.y = 0.0f`
+- Description: When the player reaches the slope part of the parkour. He/she is unable to move the slope upwards and moves into the slope instead which leads to seeing parts of the parkour that weren’t meant to be seen. The problem lies in `forwardDirection.y = 0.0f`
 - Solution:
 
 ```csharp
@@ -237,4 +239,12 @@ private void OnCollisionEnter(Collision collision)
     }
 ```
 
-After a lot of debugging and testing out new solutions, the solution to this problem was rather trivial. The `ContactPoint` class stores information about the contact point where a collision occurs. First I tagged all the streets on the parkour & the slope with a “ground” tag. Then when everytime the basketball hits the ground, I extract the y-position from the first contact point of the collision and set it to the new y-position of the player, which gets updated in `LocomotionTechnique.cs`.
+After a lot of debugging and testing out new solutions, the solution to this problem was rather trivial. The `ContactPoint` class stores information about the contact point where a collision occurs. First I tagged all parts of the parkour with streets & the slope with a “ground” tag. Then when everytime the basketball hits the ground, I extract the y-position from the first contact point of the collision and set it to the new y-position of the player, which gets updated in `LocomotionTechnique.cs`. Now the y-position is calculated correctly when the player moves upward & downward the slope part of the parkour.
+
+## Interaction Technique: Spinning basketball
+
+To stick with the basketball narrative, I used a spinning basketball as a metaphor to rotate the T-shaped object in the interaction task. My first attempt to approach this was to use Meta’s `ControllerHands` and Gesture detection to stick the ball into the T-shape and rotate it by doing a swipe motion. Sadly the use of `ControllersHands` in combination with Metas Interaction SDK is limited and more optimized for `Hands` tracking, so i ditched this idea. (Failed attempts can be seen in `**ControllerGestureDetector.cs`**  & `GestureDetector.cs`
+
+So I came up with a simpler solution by using the hand trigger of the right controller which makes the right `ControllerHands` index finger point up (👆) so it mimicks the starting position if you try to spin a basketball IRL. Then if the player pokes the T-shaped object with the controller, a collision will be detected and the ball spawns into the T-shaped object and it sticks to the index finger of `ControllerHands` until the release of the hand trigger. The left controller then controls the speed of the rotation/spin of the basketball by moving it left or right on the x-Axis plane. If the movement is leveled, the spin slows down and the T-shape will be easier to place into position. The full implementation can be seen in `MyGrab.cs`. 
+
+Gameplay of the spinning basketball implementation: [here](https://drive.google.com/file/d/1MQ35fk9pt6QXU9y1ok72Dc0TkjzG__SI/view?usp=sharing)
