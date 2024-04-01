@@ -7,7 +7,8 @@ draft = false
 ## Introduction
 
 This blog documents the semester-long project for the course “Interaction in Virtual Reality and Augmented Reality” at TU Darmstadt. The task for the course was to dive into VR-Development with Unity and create a locomotion technique and an object interaction technique, which will be used to move through a VR-Parkour that was developed by one of the lecturers. We were also given Meta Quest 2 headsets, where we could develop and test our applications on.
-![IMG_5928](https://github.com/Frank-Pham/IVAR_Basketball_Blog/assets/58122562/ce12c93b-85ad-411c-803f-869fef049676)
+
+![IMG_5928](https://github.com/Frank-Pham/IVAR_Basketball_Blog/assets/58122562/43242549-9d8c-4781-a93e-4ab47a620756)
 
 You can find the VR-Parkour here: [Github](https://github.com/Akuhana/VR-locomotion-parkour-main)
 
