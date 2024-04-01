@@ -247,6 +247,7 @@ private void OnCollisionEnter(Collision collision)
 After a lot of debugging and testing out new solutions, the solution to this problem was rather trivial. The `ContactPoint` class stores information about the contact point where a collision occurs. First I tagged all parts of the parkour with streets & the slope with a “ground” tag. Then when everytime the basketball hits the ground, I extract the y-position from the first contact point of the collision and set it to the new y-position of the player, which gets updated in `LocomotionTechnique.cs`. Now the y-position is calculated correctly when the player moves upward & downward the slope part of the parkour.
 
 ## Interaction Technique: Spinning basketball
+![IVAR_dribbling](https://github.com/Frank-Pham/IVAR_Basketball_Blog/assets/58122562/8f4e2d18-d55a-4138-9112-3b94d3466b48)
 
 To stick with the basketball narrative, I used a spinning basketball as a metaphor to rotate the T-shaped object in the interaction task. My first attempt to approach this was to use Meta’s `ControllerHands` and Gesture detection to stick the ball into the T-shape and rotate it by doing a swipe motion. Sadly the use of `ControllersHands` in combination with Metas Interaction SDK is limited and more optimized for `Hands` tracking, so i ditched this idea. (Failed attempts can be seen in `**ControllerGestureDetector.cs`**  & `GestureDetector.cs`
 
