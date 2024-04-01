@@ -38,7 +38,7 @@ The participants were also asked to give feedback after the testing phase:
 - Dunking was fun but the fact that it still has a lot of bugs makes it not fun in general
 - A lot of cybersickness when spamming the dunking motion
 - Dribbling is not cybersickness inducing at all
-- Haptics and sound effects are good and make ithe wole experience more realistic
+- Haptics and sound effects are good and make the whole experience more realistic
 - Interaction task: A visual feedback for how strong the spin currently is would be nice
 
 ## Conclusion
