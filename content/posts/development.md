@@ -41,6 +41,9 @@ The `MovePlayer` function basically checks if the velocity of the `OVRController
 
 In the new `Dribble.cs`  Script, which is attached to Basketball `GameObject` , all the dribbling related logic is defined. There are few tweaks so the handling of the ball feels more intuitive instead of relying on the in-game physics and the reaction time of the player like beforehand:
 
+![IVAR_dribbling](https://github.com/Frank-Pham/IVAR_Basketball_Blog/assets/58122562/6a55bfbc-13c4-4a97-a2b2-744da6fa4af3)
+
+Now the player starts to gradually move towards the basketball whenever it hits the ground, giving the player more time to react to the ball.
 ```csharp
 void Update()
     {
@@ -144,6 +147,8 @@ I thought it would be pretty sweet to be able to dunk the basketball because IRL
 3. Ball is in the air
 4. While ball is in the air, quickly push controller upwards
 5. Slam dunk
+
+![IVAR_dunking](https://github.com/Frank-Pham/IVAR_Basketball_Blog/assets/58122562/d6979f02-d4e4-4c57-bae1-21520157b15a)
 
 The dunking implementation consists of two phases and builds on top of the logic moving towards a desired position that we already seen in `LocomotionTechnique.cs` . 
 
