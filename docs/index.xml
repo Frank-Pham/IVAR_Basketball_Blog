@@ -25,5 +25,15 @@
       <description>Implementation: Locomotion Initial Prototype One of the main restrictions during the development of the initial prototype for the locomotion technique was how the players movement is restricted due to the confined space, in which the player is situated in contrarily to the open court in basketball. Thus running up and down your room wasn’t an feasible option, so i kept the locomotion mechanics simple &amp;amp; straightforward: the way and the direction you dribble the ball dictates the players movement within the virtual space without the need to use your legs.</description>
     </item>
     
+    <item>
+      <title>Evaluation</title>
+      <link>https://frank-pham.github.io/IVAR_Basketball_Blog/posts/evaluation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://frank-pham.github.io/IVAR_Basketball_Blog/posts/evaluation/</guid>
+      <description>To evaluate my locomotion &amp;amp; interaction technique a user study was conducted including 2 participants and myself. The participants were exposed to the parkour for around 15-20 minutes with 5 minutes of practice beforehand. The instructions given to the participants were to be as fast and accurated as possible. After each round the time was collected. The following variables were measured and collected during the user study:
+Average time per round Average accuracy per round Participant 1 Participant 2 Me Average round 1058.</description>
+    </item>
+    
   </channel>
 </rss>
