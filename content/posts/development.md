@@ -246,6 +246,13 @@ private void OnCollisionEnter(Collision collision)
 
 After a lot of debugging and testing out new solutions, the solution to this problem was rather trivial. The `ContactPoint` class stores information about the contact point where a collision occurs. First I tagged all parts of the parkour with streets & the slope with a “ground” tag. Then when everytime the basketball hits the ground, I extract the y-position from the first contact point of the collision and set it to the new y-position of the player, which gets updated in `LocomotionTechnique.cs`. Now the y-position is calculated correctly when the player moves upward & downward the slope part of the parkour.
 
+## Materials
+To give the sphere a more realistic look, I added a basketball texture to a material and applied it to the basketball. The texture can be found [here](https://www.robinwood.com/Catalog/FreeStuff/Textures/TextureDownloads/Balls/BasketballColor.jpg).
+![Untitled (4)](https://github.com/Frank-Pham/IVAR_Basketball_Blog/assets/58122562/298917fa-ec26-483b-a3fc-61b559d44328)
+
+Furthermore I added a physics material to give the basketball a realistic bounce when it collides with other objects. Then i applied it to the sphere collider of the basketball GameObject. Here are the configurations of the physics material:
+![Untitled (3)](https://github.com/Frank-Pham/IVAR_Basketball_Blog/assets/58122562/4bf7be17-9cf5-4919-bb71-b3d2692535d7)
+
 ## Interaction Technique: Spinning basketball
 ![IVAR_dribbling](https://github.com/Frank-Pham/IVAR_Basketball_Blog/assets/58122562/8f4e2d18-d55a-4138-9112-3b94d3466b48)
 
